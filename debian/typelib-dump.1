@@ -1,0 +1,33 @@
+.\" created for typelib-dump by Sebastian Rittau, for Debian GNU/Linux
+.\" based on orbit2-config by Chris Waters
+.\"
+.TH TYPELIB-DUMP 1 "22 February 2003" "Version 2.6.0"
+
+.SH NAME
+typelib\-dump \- show ORBit2 type library modules
+
+.SH SYNOPSIS
+.HP
+.B typelib\-dump
+.RI "[ " module " ]"
+
+.SH DESCRIPTION
+If
+.B typelib-dump
+is called without any arguments, it lists all \fIORBit2\fP typelib paths
+and the typelib modules in them. Otherwise the argument \fBmodule\fP
+is taken as the name of a typelib module. This module gets inspected
+and all types and interfaces of the module as well as all interface methods
+are dumped to the screen.
+
+.SH SEE ALSO
+orbit-idl-2(1), /usr/share/doc/orbit2,
+http://orbit-resource.sourceforge.net/, http://www.omg.org/.
+
+.SH AUTHOR
+Copyright \(co  2001, 2002 Dick Porter <dick@acm.org> and Elliot Lee
+<sopwith@redhat.com>
+
+This manual page was originally written for typelib-dump by Sebastian Rittau
+<srittau@debian.org> for Debian GNU/Linux and is based on the manual page
+for orbit2-config by Chris Waters <xtifr@debian.org>.

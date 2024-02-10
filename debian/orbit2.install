@@ -1,0 +1,4 @@
+debian/tmp/usr/bin/ior-decode-2
+debian/tmp/usr/bin/linc-cleanup-sockets
+debian/tmp/usr/bin/typelib-dump
+debian/tmp/usr/bin/orbit-idl-2

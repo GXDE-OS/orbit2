@@ -1,0 +1,668 @@
+orbit2 (1:2.14.19-2) unstable; urgency=medium
+
+  * QA upload.
+  * Build using the -fPIC CFLAG (Closes: #837664)
+
+ -- Balint Reczey <balint@balintreczey.hu>  Fri, 30 Sep 2016 21:13:57 +0200
+
+orbit2 (1:2.14.19-1) unstable; urgency=low
+
+  * QA upload.
+  * Maintainer field set to QA Group.
+  * Bump Standards-Version to 3.9.6.
+
+ -- Emanuele Rocca <ema@debian.org>  Fri, 08 May 2015 21:12:27 +0200
+
+orbit2 (1:2.14.19-0.3) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Move orbit-idl-2 to orbit2, update dependencies accordingly.
+  * orbit2-config-multiarch.patch: new patch. Remove useless lines from 
+    orbit2-config that break the MA-same expectation.
+  * All of this allows us to make liborbit2-dev Multi-Arch: same.
+  * Drop useless Everything_module.a.
+  * Move libORBit-2 and libORBitCosNaming-2 to a new liborbit-2-0 
+    package. This will avoid pulling libidl0 and its cpp dependency on 
+    machines that need liborbit.
+  * Bump standards version.
+  * Convert to 3.0 quilt format.
+  * Remove m68k patch, we don’t ship this architecture anymore.
+  * Update package descriptions. Closes: #493468.
+  * Correctly cleanup built documentation.
+  * Rename the lintian override file to the correct name.
+
+ -- Josselin Mouette <joss@debian.org>  Sun, 17 Nov 2013 18:49:42 +0100
+
+orbit2 (1:2.14.19-0.2) unstable; urgency=low
+
+  [Balint Reczey]
+  * Non-maintainer upload.
+  * incorporating patches from Ubuntu to fix build failures
+
+  [Sebastien Bacher]
+  * debian/patches/git_new_autotools_build.patch:
+    - fix the build with the new automake version
+  * debian/patches/glib_no_deprecations.patch: turn off glib deprecations,
+    to fix the build with the current version
+
+  [ Riku Voipio ]
+  * Multiarchize.  Closes: #641615.
+
+  [ Steve Langasek ]
+  * Remove .la files from the package, as they're no longer needed.
+  * debian/patches/pre-multiarch-compatibility.patch: Support pre-
+    multiarch directory as a compatibility fallback.  Closes: #641615,
+    LP: #977966.
+
+ -- Balint Reczey <balint@balintreczey.hu>  Tue, 27 Aug 2013 18:32:04 +0200
+
+orbit2 (1:2.14.19-0.1) unstable; urgency=low
+
+  * Non-maintainer upload, for the GNOME 3 transition.
+  * New upstream release.
+  * Update watch file.
+  * Use dh-autoreconf:
+    - Drop debian/patches/700-autoreconf.patch.
+    - Add Build-Depends on dh-autoreconf.
+    - Add autoreconf.mk include.
+  * debian/rules:
+    - Don't include autotools.mk as we already include gnome.mk.
+  * debian/patches/001-dont-use-atexit-handlers.patch:
+    - Don't use atexit handlers, as they cause gnome-settings-daemon to crash.
+      Use a GNU C extension instead. Patch by Rodrigo Moya.
+      (LP: #788710, Closes: #645704)
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 18 Oct 2011 01:09:32 +0200
+
+orbit2 (1:2.14.18-0.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Remove references to other libraries from dependency_libs field
+    (Closes: #619205).
+
+ -- Luk Claes <luk@debian.org>  Sun, 29 May 2011 22:49:43 +0200
+
+orbit2 (1:2.14.18-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream bugfix release, one API addition:
+    + debian/patches/700-autoreconf.patch:
+      - Regenerated for the new version.
+
+ -- Sebastian Dröge <slomo@debian.org>  Thu, 08 Apr 2010 12:27:40 +0200
+
+orbit2 (1:2.14.17-2) unstable; urgency=low
+
+  * debian/control: Added minimum version to debhelper and pkg-config
+    build-depends.
+  * debian/liborbit2.lintian-overrides: Ignore that the package name does
+    not match the .so names. This has historic reason and is not going to
+    change.
+  * debian/control: Fixed a typo in orbit2-nameserver's description.
+    + Closes: #557830 "Typo in package description: "This packages""
+
+ -- Sebastian Rittau <srittau@debian.org>  Tue, 24 Nov 2009 21:42:44 +0100
+
+orbit2 (1:2.14.17-1) unstable; urgency=low
+
+  * Acknowledge NMUs. Thanks, people!
+    + Closes: #460403 "diff for NMU version 1:2.14.10-0.1"
+    + Closes: #471275 "diff for NMU 2.14.12-0.1"
+  * Update Standards-Version to 3.8.3, no additional changes needed.
+  * Bump debhelper compatibility level to 7.
+
+ -- Sebastian Rittau <srittau@debian.org>  Sun, 04 Oct 2009 17:36:55 +0200
+
+orbit2 (1:2.14.17-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream bugfix release. No API changes.
+  * Update Standards-Version to 3.8.0, no additional changes needed.
+  * Build depend on autotools-dev to get config.{sub,guess} updated.
+
+ -- Sebastian Dröge <slomo@debian.org>  Fri, 06 Mar 2009 18:40:04 +0100
+
+orbit2 (1:2.14.16-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream bugfix release. No API changes.
+
+ -- Josselin Mouette <joss@debian.org>  Fri, 14 Nov 2008 22:46:49 +0100
+
+orbit2 (1:2.14.13-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream bugfix release:
+    + Robustness fixes.
+    + Locking fixes in linc.
+    + Fixes for handling of local requests.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 03 Jun 2008 10:40:06 +0200
+
+orbit2 (1:2.14.12-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream bugfix release:
+    + Fixes build with glib 2.16 (Closes: #464525).
+    + 700-autoreconf.patch: Regenerated for the new version.
+    + Build depend on libidl-dev (>= 0.8.10).
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 17 Mar 2008 02:39:46 +0100
+
+orbit2 (1:2.14.10-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream release with API additions.
+  * Increase shlibs version to 2.14.10.
+  * Use ${binary:Version}.
+  * Standards version can be 3.7.3.
+  * Fix FSF address in copyright.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 12 Jan 2008 13:09:44 +0100
+
+orbit2 (1:2.14.7-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream releases; no API or ABI change.
+
+ -- Loic Minier <lool@dooz.org>  Thu, 05 Apr 2007 17:12:25 +0200
+
+orbit2 (1:2.14.5-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream stable release; no ABI change, one small backward-compatible
+    API change: it's not necessary to define ORBIT2_EXTENSIONS before using
+    ORBit_get_giop_recv_limit() or ORBit_proto_use(); closes: #417907.
+
+ -- Loic Minier <lool@dooz.org>  Thu, 05 Apr 2007 16:08:04 +0200
+
+orbit2 (1:2.14.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Acknowledge NMU. (Thanks, Loic!)
+    + Closes: #395050 "Diff for 2.14.3-0.1 NMU"
+  * debian/patches/700-autoreconf.patch: Updated.
+  * debian/SSL.Debian: Removed, since SSL support was removed upstream.
+  * debian/TODO: Removed; all todo items are outdated.
+  * debian/liborbit2.docs: Removed SSL.Debian and TODO.
+
+ -- Sebastian Rittau <srittau@debian.org>  Mon, 18 Dec 2006 20:11:59 +0100
+
+orbit2 (1:2.14.3-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream releases, with API addition; closes: #386410.
+    - Bump up shlibs to >= 1:2.14.1.
+    - Bump up libglib2.0-dev build-dep to >= 2.8.0.
+    - Drop build-dep and dep on libpopt-dev.
+    - Split patch 100-compile-name-server with a new 700_autoreconf patch
+      which holds the generated files; I'm afraid it's ~ 2 MB, but I don't
+      have automake1.6 around to properly minimize the diff.
+  * Include debian/patches/m68k when building for m68k.
+  * New m68k patch, 10-aligment-misc-fixes, to properly align memory on m68k;
+    thanks Roman Zippel; closes: #390516.
+  * Add watch file.
+
+ -- Loic Minier <lool@dooz.org>  Tue, 24 Oct 2006 16:08:59 +0200
+
+orbit2 (1:2.14.0-2) unstable; urgency=low
+
+  * Acknowledge NMU. (Thanks, Steinar!)
+    + Closes: #371847 "diff for 1:2.14.0-1.1 NMU"
+  * debian/control: Bump build dependency on gtk-doc-tools to >= 1.6-2.
+    Removed build dependency on xsltproc (since gtk-doc-tools depends on it).
+    + Closes: #362791 "orbit2 should declare a versioned dependency on
+      gtk-doc-tools"
+  * debian/copyright: Updated copyright text with (L)GPL boilerplate.
+  * debian/control: Bump standards version to 3.7.2 (no changes required).
+
+ -- Sebastian Rittau <srittau@debian.org>  Fri, 23 Jun 2006 11:54:14 +0200
+ 
+orbit2 (1:2.14.0-1.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Make liborbit2-dev depend on at least version 0.8.6-1 of libidl-dev.
+    (Closes: #369685)
+
+ -- Steinar H. Gunderson <sesse@debian.org>  Wed,  7 Jun 2006 22:45:41 +0200
+
+orbit2 (1:2.14.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Sebastian Rittau <srittau@debian.org>  Thu, 16 Mar 2006 21:14:34 +0100
+
+orbit2 (1:2.12.2-3) unstable; urgency=low
+
+  * debian/control: Added gtk-doc-tools to build dependencies.
+    (Closes: #318783, #318584)
+
+ -- Sebastian Rittau <srittau@debian.org>  Thu, 21 Jul 2005 22:41:25 +0200
+
+orbit2 (1:2.12.2-2) unstable; urgency=low
+
+  * debian/control: Updated standards-version to 3.6.2 (no changes).
+  * Reenable shipping of API documentation. (Closes: #317352)
+    + debian/rules: Add --enable-gtk-doc option to build API documentation.
+    + debian/liborbit2-dev.install: Added usr/share/doc/liborbit2-dev/ORBit2
+
+ -- Sebastian Rittau <srittau@debian.org>  Fri,  8 Jul 2005 17:19:23 +0200
+
+orbit2 (1:2.12.2-1) unstable; urgency=low
+
+  * New upstream version.
+    + debian/patches/100-compile-name-server.patch: Updated.
+  * debian/liborbit2-dev.install: Removed
+    debian/tmp/usr/share/doc/liborbit2-dev/ORBit2.
+
+ -- Sebastian Rittau <srittau@debian.org>  Tue, 19 Apr 2005 16:01:06 +0200
+
+orbit2 (1:2.12.1-1) unstable; urgency=low
+
+  * New upstream version.
+  * Acknowledge NMUs. (Thanks, Sebastien!)
+    + Closes: #258454 "nautilus: crashes with usb key entry in fstab"
+  * debian/control: Remove dependencies on indent, they aren't needed anymore.
+    + Closes: #292801 "depends on indent"
+  * debian/patches/000-relibtoolize.patch: Removed.
+  * debian/orbit-idl-2.1: Removed description of deprecated
+    --c-output-formatter option.
+
+ -- Sebastian Rittau <srittau@debian.org>  Tue, 15 Mar 2005 11:53:19 +0100
+
+orbit2 (1:2.10.5-0.1) unstable; urgency=low
+
+  * NMU with the maintainer approval.
+  * New upstream release:
+    - fix a nautilus crash on 64 bits platforms (Closes: #258454).
+  * debian/patches/005-pc-file-fix.patch:
+    - removed, the fix is in the new version.
+
+ -- Sebastien Bacher <seb128@debian.org>  Tue,  8 Feb 2005 16:23:53 +0100
+
+orbit2 (1:2.10.2-1.1) unstable; urgency=low
+
+  * NMU for Gnome 2.6.
+  * Upload in unstable.
+
+ -- Sebastien Bacher <seb128@debian.org>  Mon, 24 May 2004 19:31:42 +0200
+
+orbit2 (1:2.10.2-1) experimental; urgency=low
+
+  * Acknowledges NMUs. (Thanks Ross and Gustavo!)
+    + Closes: #240022, #249291
+    + Bug fixed in NMU: Closes: #242943
+  * debian/rules: Update shlibver to >= 1:2.10.0. (Closes: #218287)
+  * Fix pkg-config file not to include unnecessary libraries.
+    + debian/patches/005-pc-file-fix.patch: New file.
+    + Closes: #236094 "pkg-config --libs lists to many libraries"
+  * debian/control: Correct dependency of liborbit2-dev on libidl-dev instead
+    of libidl2-dev.
+
+ -- Sebastian Rittau <srittau@debian.org>  Sun, 16 May 2004 19:14:42 +0200
+
+orbit2 (1:2.10.2-0.1) experimental; urgency=low
+
+  * NMU
+  * New upstream release
+  * debian/control:
+  - liborbit2-dev now depends on libidl-dev (Closes: #242943)
+  * patches/000-relibtoolize.patch:
+  - add patch to relibtoolize
+  * patches/100-compile-name-server.patch:
+  - reworked patch to work with the above one
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Sun, 16 May 2004 01:24:36 -0300
+
+orbit2 (1:2.10.0-0.1) experimental; urgency=low
+
+  * NMU for GNOME 2.6 packaging
+  * New upstream release
+
+ -- Ross Burton <ross@debian.org>  Thu, 25 Mar 2004 09:48:19 +0000
+
+orbit2 (1:2.8.3-2) unstable; urgency=low
+
+  * Enable orbit-name-service. [Thanks to W. Borgert for patch and manual
+    pages.]
+    + debian/control: Build-depend on xsltproc and docbook-xsl (for generating
+      the manual pages from Docbook source).
+    + debian/control: Added a new package: orbit2-nameserver.
+    + debian/patches/100-compile-name-server.patch: Patch to enable
+      compilation of the ORBit name server.
+    + debian/name-client-2.dbk:
+    + debian/orbit-name-server-2.dbk: Man pages.
+    + debian/rules: Auto-generate man pages from Docbook source.
+    + debian/orbit2-nameserver.install:
+    + debian/orbit2-nameserver.manpages: Files to install in package
+      orbit2-nameserver.
+    + Closes: #223789 "desperately missing orbit2 naming server"
+  * debian/control: Start all short description with lowercase letters.
+
+ -- Sebastian Rittau <srittau@debian.org>  Sat, 13 Dec 2003 23:06:11 +0100
+
+orbit2 (1:2.8.3-1) unstable; urgency=low
+
+  * New upstream version.
+    + debian/patches/crashfix.patch: Removed as this is now included
+      upstream. (Thanks, Sebastien for the temporary patch and NMU!)
+    + Closes: #219391 "Involved in gnumeric crash when a11y is enabled"
+
+ -- Sebastian Rittau <srittau@debian.org>  Sat, 13 Dec 2003 22:05:32 +0100
+
+orbit2 (1:2.8.2-1.1) unstable; urgency=high
+
+  * NMU to fix some crash with a11y before the entry in testing
+    (Closes: #219391).
+  * Urgency = high because it's a small fix and we don't want to delay
+    GNOME 2.4 entry in testing.
+
+ -- Sebastien Bacher <seb128@debian.org>  Sun, 16 Nov 2003 21:35:11 +0100
+
+orbit2 (1:2.8.2-1) unstable; urgency=low
+
+  * New upstream version.
+    + Closes: #218026 "new version available which fixes deadlock"
+
+ -- Sebastian Rittau <srittau@debian.org>  Wed, 29 Oct 2003 15:15:49 +0100
+
+orbit2 (1:2.8.1-5) unstable; urgency=low
+
+  * debian/control: liborbit2-dev now conflicts with liblinc-dev so that
+    newly compiled packages are not linked against linc anymore. [Suggestion
+    by Christian Marillat]
+    + Closes: #216842 "liborbit2-dev should conflict with liblinc-dev"
+  * Added manpage for linc-cleanup-sockets (from Linc Debian package, updated
+    slightly).
+    + debian/linc-cleanup-sockets.1: Manpage.
+    + debian/orbit2.manpages: Added linc-cleanup-sockets.1.
+
+ -- Sebastian Rittau <srittau@debian.org>  Tue, 21 Oct 2003 17:51:52 +0200
+
+orbit2 (1:2.8.1-4) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Sebastian Rittau <srittau@debian.org>  Thu, 16 Oct 2003 16:35:42 +0200
+
+orbit2 (1:2.8.1-3) experimental; urgency=low
+
+  * debian/control: Removed dependency on liblinc-dev from liborbit2-dev.
+  * debian/control: Changed conflicts with libbonobo-activation4 to a
+    versioned conflict.
+
+ -- Sebastian Rittau <srittau@debian.org>  Thu, 16 Oct 2003 00:37:56 +0200
+
+orbit2 (1:2.8.1-2) experimental; urgency=low
+
+  * debian/control: liborbit2 conflicts with liblinc1 (<< 1.0.3-4). This
+    version of Linc contains a workaround for a problem with newer ORBit
+    versions: Since these versions have internalized Linc, they don't call
+    linc_set_tmpdir() anymore. Thatswhy some packages that relied on ORBit
+    setting the tmpdir would fail.
+
+ -- Sebastian Rittau <srittau@debian.org>  Wed,  8 Oct 2003 11:30:45 +0200
+
+orbit2 (1:2.8.1-1) experimental; urgency=low
+
+  * New upstream version.
+    + Closes: #200847 "giop1.2 protocol implementation not compliant"
+    + debian/rules: Updated shlibs version to >= 2.8.0.
+    + debian/liborbit2-dev.install: Made paths more explicit.
+    + debian/liborbit2-dev.install: Added IDL files.
+    + debian/control: liborbit2 does now conflict and replace older versions
+      of liborbit2-dev, since Everything_module.so moved.
+  * ORBit does now include Linc:
+    + debian/control: Remove build-dependency on liblinc-dev.
+    + debian/control: Conflict with libbonobo-activation4.
+    + debian/TODO: Added note that Linc is built with SSL disabled.
+    + debian/SSL.Debian: New file (from Linc source package, slightly
+      modified).
+    + debian/liborbit2.docs: Added debian/SSL.Debian.
+    + debian/orbit2.install: Added linc-cleanup-sockets.
+  * Added HTML documentation:
+    + debian/rules: Added --with-html-dir configure option.
+    + debian/liborbit2-dev.install: Install HTML documentation.
+    + debian/liborbit2-dev.links: Added link to gtk-doc documentation.
+  * debian/copyright: Corrected download location, added copyright notices
+    from Linc.
+  * debian/control: Standards version 3.6.1 (no changes required).
+
+ -- Sebastian Rittau <srittau@debian.org>  Wed,  1 Oct 2003 20:18:56 +0200
+
+orbit2 (1:2.6.3-2) unstable; urgency=low
+
+  * Rerun libtool, automake, autoconf.
+    + Closes: #205734 "configure built from broken libtool.m4"
+
+ -- Sebastian Rittau <srittau@debian.org>  Sun, 17 Aug 2003 14:32:32 +0200
+
+orbit2 (1:2.6.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Removed debug package, since it didn't provide anything that the -dev
+    package did not.
+    + debian/control: Removed liborbit2-dbg.
+    + debian/liborbit2-dbg.dirs: Removed.
+  * Use cdbs:
+    + debian/control: Build-depend on cdbs and debhelper >= 4.1.0.
+    + debian/rules: Rewrote.
+    + debian/orbit2.install:
+    + debian/liborbit2.install:
+    + debian/liborbit2-dev.install: Added debian/tmp/ prefix for all files.
+  * debian/control: Standards version 3.6.0 (no changes required).
+
+ -- Sebastian Rittau <srittau@debian.org>  Sat, 16 Aug 2003 13:28:26 +0200
+
+orbit2 (1:2.6.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Sebastian Rittau <srittau@debian.org>  Sun, 25 May 2003 20:44:56 +0200
+
+orbit2 (1:2.6.1-2) unstable; urgency=low
+
+  * Typo in package description fixed.
+  * Changed section of packages liborbit2-dev and liborbit2-dbg to libdevel.
+  * Complies with Debian Policy, version 3.5.10.
+  * Use src/services/imodule/Makefile.am from CVS HEAD to fix inter-library
+    dependency information.
+    + Closes: #193454 "Shared library dependency information"
+
+ -- Sebastian Rittau <srittau@debian.org>  Sun, 18 May 2003 20:09:49 +0200
+
+orbit2 (1:2.6.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Conforms to Debian policy 3.5.9.
+  * Updated the package descriptions.
+  * Compile with --enable-purify. This should only result in a neglectable
+    performance hit, but is the right thing to do, IMO. This also eases
+    debugging with memory debuggers like Valgrind. (Closes: #159794)
+  * User debian/compat instead of DH_COMPAT. Also, use compatibility level 4;
+    build-depend on debhelper >= 4.0.0.
+  * Added ${misc:Depends} to dependencies, added ${shlib:Depends} to
+    dependencies of liborbit2-dbg.
+  * Use dh_install instead of dh_movefiles.
+
+ -- Sebastian Rittau <srittau@debian.org>  Tue, 25 Mar 2003 02:52:04 +0100
+
+orbit2 (1:2.6.0-2) unstable; urgency=low
+
+  * New maintainer.
+  * Removed links to undocumented(7).
+  * Wrote typelib-dump(1). (Closes: #119803)
+
+ -- Sebastian Rittau <srittau@debian.org>  Sat, 22 Feb 2003 19:32:47 +0100
+
+orbit2 (1:2.6.0-1) unstable; urgency=low
+
+  * New upstream release, finally jumping ahead to the new release
+    series.
+
+ -- Chris Waters <xtifr@debian.org>  Sat, 18 Jan 2003 17:19:41 -0800
+
+orbit2 (1:2.4.4-1) unstable; urgency=low
+
+  * New upstream release.  Actually, a slightly older upstream release,
+    but it's new to us.  Upstream version downgraded because the 2.5.0
+    release is for Gnome 2.2, which is still beta (closes: #170398).
+
+ -- Chris Waters <xtifr@debian.org>  Thu, 28 Nov 2002 03:35:31 -0800
+
+orbit2 (2.5.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Chris Waters <xtifr@debian.org>  Mon, 28 Oct 2002 13:58:13 -0800
+
+orbit2 (2.4.3-2) unstable; urgency=low
+
+  * Re-ran libtoolize, autoheader, aclocal, autoconf and automake to work
+    around a problem with MIPSEL (closes: #160063).
+
+ -- Chris Waters <xtifr@debian.org>  Thu, 17 Oct 2002 02:02:55 -0700
+
+orbit2 (2.4.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Fixed download location in copyright file.
+  * Updated standards-version in debian/control.
+  * Updated debian/TODO a little.
+
+ -- Chris Waters <xtifr@debian.org>  Fri,  6 Sep 2002 15:34:57 -0700
+
+orbit2 (2.4.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added missing dependency on libpopt-dev to liborbit2-dev 
+    (closes: #155679).
+  * upstream removed name-client-2 and orbit-name-server-2, so I adjusted
+    the docs and descriptions accordingly.
+
+ -- Chris Waters <xtifr@debian.org>  Wed,  7 Aug 2002 12:09:41 -0700
+
+orbit2 (2.4.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Chris Waters <xtifr@debian.org>  Thu,  6 Jun 2002 16:00:38 -0700
+
+orbit2 (2.3.110-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Chris Waters <xtifr@debian.org>  Tue, 21 May 2002 23:01:37 -0700
+
+orbit2 (2.3.109-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Chris Waters <xtifr@debian.org>  Thu, 16 May 2002 12:14:05 -0700
+
+orbit2 (2.3.108-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Chris Waters <xtifr@debian.org>  Wed, 17 Apr 2002 02:46:17 -0700
+
+orbit2 (2.3.107-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added man page for orbit-idl-2 (closes:#119804).
+  * Added a couple of man pages for orbit2 binary package.
+
+ -- Chris Waters <xtifr@debian.org>  Mon, 25 Mar 2002 17:24:03 -0800
+
+orbit2 (2.3.106-2) unstable; urgency=low
+
+  * Rebuilt against glibc 2.0, updated dependencies.
+
+ -- Chris Waters <xtifr@debian.org>  Thu, 21 Mar 2002 21:18:57 -0800
+
+orbit2 (2.3.106-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Chris Waters <xtifr@debian.org>  Wed,  6 Mar 2002 01:02:05 -0800
+
+orbit2 (2.3.105-2) unstable; urgency=low
+
+  * Rebuilt against new glib; updated dependencies.
+
+ -- Chris Waters <xtifr@debian.org>  Tue, 26 Feb 2002 14:33:51 -0800
+
+orbit2 (2.3.105-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Chris Waters <xtifr@debian.org>  Wed, 13 Feb 2002 13:12:10 -0800
+
+orbit2 (2.3.104-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Chris Waters <xtifr@debian.org>  Fri,  8 Feb 2002 01:24:01 -0800
+
+orbit2 (2.3.102-2) unstable; urgency=low
+
+  * Added missing dependency on indent (closes:#131426)
+
+ -- Chris Waters <xtifr@debian.org>  Tue, 29 Jan 2002 14:38:50 -0800
+
+orbit2 (2.3.102-1) unstable; urgency=low
+
+  * New upstream release.
+  * New (hopefully better) patch for the recurring libtool problems with
+    the Everything module.  (closes:#128476)
+
+ -- Chris Waters <xtifr@debian.org>  Sat, 12 Jan 2002 21:45:02 -0800
+
+orbit2 (2.3.101-2) unstable; urgency=low
+
+  * Updated versioned build-depends on linc (closes:#127970).
+
+ -- Chris Waters <xtifr@debian.org>  Mon,  7 Jan 2002 13:40:13 -0800
+
+orbit2 (2.3.101-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Chris Waters <xtifr@debian.org>  Sat,  5 Jan 2002 02:38:18 -0800
+
+orbit2 (2.3.100-1) unstable; urgency=low
+
+  * New upstream release.  Includes fix for build problems with Everything
+    module (closes:#122546).
+
+ -- Chris Waters <xtifr@debian.org>  Tue, 18 Dec 2001 16:42:59 -0800
+
+orbit2 (2.3.99-2) unstable; urgency=low
+
+  * Was installing Everything .so module in wrong place (although links
+    and .a were going to the right place).  Yeesh.
+
+ -- Chris Waters <xtifr@debian.org>  Fri,  7 Dec 2001 13:46:30 -0800
+
+orbit2 (2.3.99-1) unstable; urgency=low
+
+  * New upstream release (closes:#121748).
+  * Added some more versioned depends (closes:#119484,#121751) 
+
+ -- Chris Waters <xtifr@debian.org>  Sat,  1 Dec 2001 13:42:55 -0800
+
+orbit2 (2.3.97-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added versioned build-depends on libglib1.3.
+
+ -- Chris Waters <xtifr@debian.org>  Mon,  5 Nov 2001 12:32:05 -0800
+
+orbit2 (2.3.95-1) unstable; urgency=low
+
+  * Initial packaging for Debian.
+  * Created manual page for orbit2-config.
+  * Patched orbit2-config to actually work.
+  
+ -- Chris Waters <xtifr@debian.org>  Tue, 23 Oct 2001 23:34:14 -0700
+

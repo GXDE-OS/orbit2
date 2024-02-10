@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+
+<refentry>
+  <refentryinfo>
+    <copyright>
+      <year>2003</year>
+      <holder>W. Borgert</holder>
+    </copyright>
+    <date>2003-12-12</date>
+    <authorgroup>
+      <author>
+	<firstname>W.</firstname>
+	<surname>Borgert</surname>
+	<email>debacle@debian.org</email>
+      </author>
+    </authorgroup>
+    <revhistory>
+      <revision>
+	<revnumber>1</revnumber>
+	<date>2003-12-12</date>
+	<authorinitials>WB</authorinitials>
+	<revremark>initial version</revremark>
+      </revision>
+    </revhistory>
+  </refentryinfo>
+
+  <refmeta>
+    <refentrytitle>name-client-2</refentrytitle>
+
+    <manvolnum>1</manvolnum>
+  </refmeta>
+
+  <refnamediv>
+    <refname>name-client-2</refname>
+
+    <refpurpose>CORBA Naming Service client</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>name-client-2</command>
+
+      <arg><replaceable>root</replaceable></arg>
+      <group><arg>bind</arg> <arg>rebind</arg>
+      <arg>bind_context</arg> <arg>rebind_context</arg></group>
+      <arg><replaceable>name</replaceable></arg>
+      <arg><replaceable>object-id</replaceable></arg>
+    </cmdsynopsis>
+
+    <cmdsynopsis>
+      <command>name-client-2</command>
+
+      <arg><replaceable>root</replaceable></arg>
+      <group><arg>resolve</arg> <arg>unbind</arg>
+      <arg>bind_new_context</arg> <arg>list</arg>
+      <arg>destroy</arg></group>
+      <arg><replaceable>name</replaceable></arg>
+    </cmdsynopsis>
+
+    <cmdsynopsis>
+      <command>name-client-2</command>
+
+      <arg><replaceable>root</replaceable></arg>
+      <arg><option>new_context</option></arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+  <refsect1>
+    <title>Description</title>
+
+    <para><command>name-client-2</command> is used to query or control
+    a CORBA Name Service, such as the
+    <command>orbit-name-server-2</command>.</para>
+  </refsect1>
+
+  <refsect1>
+    <title>Options</title>
+
+    <para><command>name-client-2</command> accepts the following
+    arguments:</para>
+
+    <variablelist>
+      <varlistentry>
+	<term>
+	  <cmdsynopsis>
+	    <arg>root</arg>
+	    <arg><option>bind</option> <option>rebind</option>
+	    <option>bind_context</option>
+	    <option>rebind_context</option></arg>
+	    <arg>name</arg> <arg>object-id</arg>
+	  </cmdsynopsis>
+	</term>
+	<listitem>
+	  <para>Binds or rebinds an object or naming context to name.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term>
+	  <cmdsynopsis>
+	    <arg>root</arg>
+	    <arg><option>resolve</option> <option>unbind</option>
+	    <option>bind_new_context</option> <option>list</option>
+	    <option>destroy</option></arg>
+	    <arg>name</arg>
+	  </cmdsynopsis>
+	</term>
+	<listitem>
+	  <para>Resolves, unbinds, lists, or destroys name or binds
+	  name to a new context.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term>
+	  <cmdsynopsis>
+	    <arg>root</arg>
+	    <arg><option>new_context</option></arg>
+	  </cmdsynopsis>
+	</term>
+	<listitem>
+	  <para>Creates a new naming context and writes its IOR to
+	  standard output.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Components of name are delimited by
+    <literal>/</literal> (slash).</para>
+
+    <para><emphasis>id</emphasis> and <emphasis>kind</emphasis> of
+    those components are delimited by <literal>.</literal>
+    (dot).</para>
+
+    <para><emphasis>root</emphasis> denotes the IOR of the root naming
+    context, it is either:</para>
+
+    <itemizedlist>
+      <listitem>
+	<para>the IOR itself</para>
+      </listitem>
+
+      <listitem>
+	<para><option>--stdin</option>: the IOR is read from
+	stdin.</para>
+      </listitem>
+
+      <listitem>
+	<para><option>--gnome</option>: the GNOME Name Server is
+	used.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para><emphasis>object-id</emphasis> is the IOR of an
+    object.</para>
+  </refsect1>
+
+  <refsect1>
+    <title>Files</title>
+
+    <para>On startup, <command>name-client-2</command> tries to read
+    the files <filename>/etc/orbitrc</filename> and
+    <filename>$HOME/.orbitrc</filename>.  The format of these files is
+    not yet documented in Debian.</para>
+  </refsect1>
+
+  <refsect1>
+    <title>See Also</title>
+
+    <para>ORBit2 web pages: <ulink
+    url="http://www.gnome.org/projects/ORBit2/">GNOME</ulink>, <ulink
+    url="http://orbit-resource.sourceforge.net/">SourceForge</ulink>
+    </para>
+  </refsect1>
+
+  <refsect1>
+    <title>Authors</title>
+
+    <para>This manual was written by <author><firstname>W.</firstname>
+    <surname>Borgert</surname>
+    <email>debacle@debian.org</email></author> for Debian
+    GNU/Linux.</para>
+  </refsect1>
+</refentry>

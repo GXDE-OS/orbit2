@@ -1,0 +1,80 @@
+.\" created for orbit2-config by Chris Waters, for Debian GNU/Linux
+.\"
+.TH ORBIT2-CONFIG 1 "18 December 2001" "Version 2.3.100"
+
+.SH NAME
+orbit2\-config \- helper script for building with ORBit2
+.SH SYNOPSIS
+.HP
+.B orbit2\-config
+.RB "[ " \-\-libs " ] [ " \-\-cflags " ]"
+[
+.BI \-\-prefix =dir
+] [
+.BI \-\-exec\-prefix =dir
+] [
+.BI \-\-use\-service =service
+]
+.RB "[ " client " | " server " ]"
+.HP
+.B orbit2\-config
+.RB "[ " \-\-version " ] [ " \-\-help " ]"
+
+.SH DESCRIPTION
+.B orbit2-config
+is a tool that is used to determine the compiler and linker flags that
+should be used to compile and link programs that use the \fIorbit2\fP
+library. It is also used internally by the .m4 macros for GNU autoconf
+that are included with \fIorbit2\fP.
+
+The argument \fBclient\fP is used for compiling an orbit2 client, and
+\fBserver\fP for compiling an orbit2 server.  In most cases, you will
+use one (or both) of the options \fB\-\-cflags\fP or \fB\-\-libs\fP
+(depending on whether you are compiling or linking.
+
+.SH OPTIONS
+.B orbit2-config
+accepts the following options:
+.TP
+.B \-\-version
+Print the currently installed version of \fIlibrary\fP on the standard output.
+.TP
+.B \-\-help
+Print a usage summary.
+.TP
+.B \-\-cflags
+Print the compiler flags that are necessary to compile a program using
+the specified \fIlibrary\fP.
+.TP
+.B \-\-libs
+Print the linker flags that are necessary to link with the specified
+\fIlibrary\fP.
+.TP
+.BI \-\-prefix =PREFIX
+If specified, use PREFIX instead of the installation prefix that \fIlibrary\fP
+was built with when computing the output for the \-\-cflags and
+\-\-libs options. This option is also used for the exec prefix
+if \-\-exec\-prefix was not specified. This option must be specified
+before any \-\-libs or \-\-cflags options.
+.TP
+.BI \-\-exec\-prefix =PREFIX
+If specified, use PREFIX instead of the installation exec prefix that
+\fIlibrary\fP was built with when computing the output for the \-\-cflags
+and \-\-libs options.  This option must be specified before any
+\-\-libs or \-\-cflags options.
+.TP
+.BI \-\-use-service= SERVICE
+If specified, provide additional flags (if any) for using the
+specified service.  Known values for SERVICE are: module CosNaming,
+interfaces LNameComponent, LName.
+
+.SH SEE ALSO
+orbit-idl-2(1), /usr/share/doc/liborbit2-dev,
+http://orbit-resource.sourceforge.net, http://www.omg.org.
+
+.SH AUTHOR
+Copyright \(co  2001, 2002 Dick Porter <dick@acm.org> and Elliot Lee
+<sopwith@redhat.com>
+
+This manual was originally written for orbit2-config by Chris Waters
+<xtifr@debian.org> for Debian GNU/Linux.

@@ -1,0 +1,98 @@
+Source: orbit2
+Section: net
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 3.9.6
+Build-Depends: libglib2.0-dev (>= 2.8.0), libidl-dev (>= 0.8.10), pkg-config (>= 0.20), cdbs (>= 0.4.93), debhelper (>= 8.1.3), docbook-xsl, gtk-doc-tools (>= 1.6-2), autotools-dev, dh-autoreconf
+
+Package: liborbit-2-0
+Architecture: any
+Multi-Arch: same
+Section: libs
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Breaks: liborbit2 (<< 1:2.14.19-0.3)
+Replaces: liborbit2 (<< 1:2.14.19-0.3)
+Description: high-performance CORBA implementation - common libraries
+ CORBA (Common Object Request Broker Architecture) is an architecture 
+ that enables program objects to communicate, sending requests and 
+ receiving replies, between different applications, regardless of their 
+ programming language, operating system or network location.
+ .
+ This package contains the run-time libraries needed by applications 
+ that communicate with each other using the ORBit2 implementation of 
+ CORBA.
+
+Package: liborbit2
+Architecture: any
+Multi-Arch: same
+Section: libs
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         liborbit-2-0 (= ${binary:Version})
+Replaces: liborbit2-dev (<< 2.8.1-1)
+Conflicts: liborbit2-dev (<< 2.8.1-1), liblinc1 (<< 1.0.3-4), libbonobo-activation4 (<< 1:2.4.0)
+Description: high-performance CORBA implementation - extra libraries
+ CORBA (Common Object Request Broker Architecture) is an architecture 
+ that enables program objects to communicate, sending requests and 
+ receiving replies, between different applications, regardless of their 
+ programming language, operating system or network location. 
+ .
+ This package contains extra run-time libraries needed by some 
+ applications that communicate with each other using the ORBit2 
+ implementation of CORBA.
+
+Package: orbit2
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: liborbit2-dev (<< 1:2.14.19-0.3)
+Breaks: liborbit2-dev (<< 1:2.14.19-0.3)
+Multi-Arch: foreign
+Description: high-performance CORBA implementation - Object Request Broker
+ CORBA (Common Object Request Broker Architecture) is an architecture 
+ that enables program objects to communicate, sending requests and 
+ receiving replies, between different applications, regardless of their 
+ programming language, operating system or network location.
+ .
+ This package contains support programs for the ORBit2 implementation of 
+ CORBA: the IDL compiler needed to import objects definitions into your 
+ C programs, and the command-line utilities ior-decode-2 and 
+ typelib-dump.
+
+Package: orbit2-nameserver
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: foreign
+Description: high-performance CORBA implementation - name server
+ CORBA (Common Object Request Broker Architecture) is an architecture 
+ that enables program objects to communicate, sending requests and 
+ receiving replies, between different applications, regardless of their 
+ programming language, operating system or network location.
+ .
+ This package contains the CORBA nameserver provided by the ORBit2 
+ implementation of CORBA, and a utility client program.
+
+Package: liborbit2-dev
+Architecture: any
+Multi-Arch: foreign
+Section: libdevel
+Depends: liborbit2 (= ${binary:Version}),
+         libidl-dev (>= 0.8.6-1),
+         libglib2.0-dev,
+         pkg-config,
+         orbit2 (= ${binary:Version}),
+         ${shlibs:Depends},
+         ${misc:Depends}
+Conflicts: liblinc-dev
+Description: high-performance CORBA implementation - development
+ CORBA (Common Object Request Broker Architecture) is an architecture 
+ that enables program objects to communicate, sending requests and 
+ receiving replies, between different applications, regardless of their 
+ programming language, operating system or network location.
+ .
+ This package contains the header files and static libraries used for 
+ developing applications that communicate with each other using the 
+ ORBit2 implementation of CORBA.

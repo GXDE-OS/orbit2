@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+
+shlibver = (>= 1:2.14.10)
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/autoreconf.mk
+include /usr/share/cdbs/1/class/gnome.mk
+
+DEB_DH_MAKESHLIBS_ARGS_liborbit2 := -V 'liborbit2 $(shlibver)'
+DEB_DH_MAKESHLIBS_ARGS_liborbit-2-0 := -V 'liborbit-2-0 $(shlibver)'
+
+DEB_CONFIGURE_EXTRA_FLAGS := --enable-purify --enable-gtk-doc --with-html-dir=/usr/share/doc/liborbit2-dev --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
+
+CFLAGS += -fPIC
+
+#
+# Man page generation (from Docbook source)
+#
+
+DB2MAN=/usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl
+
+common-build-arch::
+	xsltproc --nonet --novalid -o debian/name-client-2.1       $(DB2MAN) debian/name-client-2.dbk
+	xsltproc --nonet --novalid -o debian/orbit-name-server-2.1 $(DB2MAN) debian/orbit-name-server-2.dbk
+
+clean::
+	echo $(DEB_PATCHDIRS)
+	rm -f debian/name-client-2.1 debian/orbit-name-server-2.1
+	rm -f docs/api/html/*
+
+install/liborbit2-dev::
+	rm `find debian/tmp -name '*.la'`

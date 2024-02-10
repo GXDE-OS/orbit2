@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+
+<refentry>
+  <refentryinfo>
+    <copyright>
+      <year>2003</year>
+      <holder>W. Borgert</holder>
+    </copyright>
+    <date>2003-12-12</date>
+    <authorgroup>
+      <author>
+	<firstname>W.</firstname>
+	<surname>Borgert</surname>
+	<email>debacle@debian.org</email>
+      </author>
+    </authorgroup>
+    <revhistory>
+      <revision>
+	<revnumber>1</revnumber>
+	<date>2003-12-12</date>
+	<authorinitials>WB</authorinitials>
+	<revremark>initial version</revremark>
+      </revision>
+    </revhistory>
+  </refentryinfo>
+
+  <refmeta>
+    <refentrytitle>orbit-name-server-2</refentrytitle>
+
+    <manvolnum>1</manvolnum>
+  </refmeta>
+
+  <refnamediv>
+    <refname>orbit-name-server-2</refname>
+
+    <refpurpose>CORBA Naming Server</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>orbit-name-server-2</command>
+
+      <arg><option>--key=<replaceable>string</replaceable></option></arg>
+
+      <arg><option>-?</option></arg>
+
+      <arg><option>--help</option></arg>
+
+      <arg><option>--usage</option></arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+  <refsect1>
+    <title>Description</title>
+
+    <para><command>orbit-name-server-2</command> is an ORBit2 based
+    implementation of the OMG&apos;s COS Naming Service
+    Specification.</para>
+
+    <para>When <command>orbit-name-server-2</command> starts up
+    successfully it writes the stringified object reference for its
+    root context on standard output.</para>
+  </refsect1>
+
+  <refsect1>
+    <title>Options</title>
+
+    <para><command>orbit-name-server-2</command> accepts the following
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+	<term><option>--key=<replaceable>string</replaceable></option></term>
+	<listitem>
+	  <para>Respond to corbaloc requests with this object key.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>-?</option>
+	  <option>--help</option></term>
+	<listitem>
+	  <para>Show a help message.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>--usage</option></term>
+	<listitem>
+	  <para>Display a brief usage message.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1>
+    <title>Files</title>
+
+    <para>On startup, <command>orbit-name-server-2</command> tries to
+    read the files <filename>/etc/orbitrc</filename> and
+    <filename>$HOME/.orbitrc</filename>.  The format of these files is
+    not yet documented in Debian.</para>
+  </refsect1>
+
+  <refsect1>
+    <title>See Also</title>
+
+    <para>ORBit2 web pages: <ulink
+    url="http://www.gnome.org/projects/ORBit2/">GNOME</ulink>, <ulink
+    url="http://orbit-resource.sourceforge.net/">SourceForge</ulink>
+    </para>
+  </refsect1>
+
+  <refsect1>
+    <title>Authors</title>
+
+    <para>This manual was written by <author><firstname>W.</firstname>
+    <surname>Borgert</surname>
+    <email>debacle@debian.org</email></author> for Debian
+    GNU/Linux.</para>
+  </refsect1>
+</refentry>

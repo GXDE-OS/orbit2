@@ -1,0 +1,26 @@
+.\" created for linc-cleanup-sockets by Chris Waters, for Debian GNU/Linux
+.\"
+.TH LINC-CLEANUP-SOCKETS 1 "21 October 2003" "Version 2.8.1"
+
+.SH NAME
+linc\-cleanup-sockets \- removes leftover ORBit files from /tmp
+
+.SH SYNOPSIS
+.HP
+.B linc\-cleanup\-sockets
+
+.SH DESCRIPTION
+.B linc\-cleanup\-sockets
+is a tool used internally by GNOME to cleanup any leftover sockets for
+a user that may be left behind in /tmp.  It examines any sockets found
+in the directory /tmp/orbit-\fIusername\fP.  You may run it yourself
+when needed or desired.  It prints a brief status message when done.
+
+.SH OPTIONS
+none
+
+.SH AUTHOR
+Copyright \(co 2002, Michael Meeks  <michael@ximian.com>
+
+This manual was originally written for linc\-cleanup\-sockets by Chris
+Waters for Debian GNU/Linux.
